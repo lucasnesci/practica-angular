@@ -34,9 +34,9 @@
       color: '#EEE',
       faces: 12,
       images: [
-        "images/gem-01.gif",
-        "images/gem-03.gif",
-        "images/gem-04.gif"
+        // "images/gem-01.gif",
+        // "images/gem-03.gif",
+        // "images/gem-04.gif"
       ],
       reviews: [{
           stars: 3,
