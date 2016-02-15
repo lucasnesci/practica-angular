@@ -1,18 +1,7 @@
 (function() {
-  var gems = [
-    { name: 'Azurite', price: 2.95 },
-    { name: 'Bloodstone', price: 5.95 },
-    { name: 'Zircon', price: 3.95 },
-  ];
+  'use strict';
 
   angular
-    .module('gemStore', [])
-    .controller('StoreController', function($log) {
-      this.products = gems;
-      this.purchase = purchase;
+    .module('gemStore', []);
 
-      function purchase(product) {
-        $log.warn('StoreController.purchase NOT_IMPLEMENTED - Product: ' + product.name);
-      }
-    });
-})()
+})();

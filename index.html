@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html ng-app="gemStore">
 <head>
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body ng-controller="StoreController as store">
   <div ng-repeat="product in store.products" ng-hide="product.soldOut">
@@ -9,7 +9,9 @@
     <h2>{{ product.price }}</h2>
     <button ng-click="store.purchase(product)">Add to cart!</button>
   </div>
-    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
-    <script type="text/javascript" src="gemStore.js"></script>
+
+  <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+  <script type="text/javascript" src="gemStore.js"></script>
+  <script type="text/javascript" src="StoreController.js"></script>
 </body>
 </html>
