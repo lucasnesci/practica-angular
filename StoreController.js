@@ -81,7 +81,7 @@
   }];
 
   angular
-    .module('gemStore', [])
+    .module('gemStore')
     .controller('StoreController', StoreController);
 
     function StoreController($log) {
