@@ -3,8 +3,9 @@
 <head>
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
 </head>
-<body>
-    <h1>{{ "Hola mundo" }}</h1>
+<body ng-controller="StoreController as store">
+    <h1>{{ store.product.name }}</h1>
+    <h2>{{ store.product.price }}</h2>
 
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="gemStore.js"></script>
