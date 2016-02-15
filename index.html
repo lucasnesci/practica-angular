@@ -7,6 +7,7 @@
   <div ng-repeat="product in store.products" ng-hide="product.soldOut">
     <h1>{{ product.name }}</h1>
     <h2>{{ product.price | currency }}</h2>
+    <img ng-src="{{product.images[0]}}"/>
     <button ng-click="store.purchase(product)">Add to cart!</button>
   </div>
 
