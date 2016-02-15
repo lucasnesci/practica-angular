@@ -4,9 +4,11 @@
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body ng-controller="StoreController as store">
+  <div ng-hide="store.product.soldOut">
     <h1>{{ store.product.name }}</h1>
     <h2>{{ store.product.price }}</h2>
-
+    <button ng-show="store.product.canPurchase" ng-click="store.purchase()">Add to cart!</button>
+  </div>
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="gemStore.js"></script>
 </body>
