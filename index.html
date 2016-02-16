@@ -3,50 +3,54 @@
 <head>
   <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
 </head>
-<body ng-controller="StoreController as store">
-  <div ng-repeat="product in store.products" ng-hide="product.soldOut">
-    <h1>{{ product.name }}</h1>
-    <h2>{{ product.price | currency }}</h2>
+<body class="container" ng-controller="StoreController as store">
+  <main class="row">
+    <div class="product row" ng-repeat="product in store.products" ng-hide="product.soldOut">
+      <h3>
+        {{ product.name }}
+        <em class="pull-right">{{ product.price | currency }}</em>
+      </h3>
+      <button class="btn btn-success" ng-show="product.canPurchase" ng-click="store.purchase(product)">Add to cart!</button>
 
-    <div ng-controller="GalleryController as gallery">
-      <img ng-src="{{product.images[gallery.current]}}" />
-      <ul>
-        <li ng-if="product.images.length" ng-repeat="image in product.images">
-          <img ng-src="{{image}}" ng-click="gallery.setCurrent($index)" class="img-thumbnail"/>
-        </li>
-      </ul>
+      <div class="gallery" ng-controller="GalleryController as gallery">
+        <img ng-src="{{product.images[gallery.current]}}" class="center-block img-rounded" />
+        <ul class="clearfix list-unstyled">
+          <li ng-if="product.images.length" ng-repeat="image in product.images" class="pull-left">
+            <img ng-src="{{image}}" ng-click="gallery.setCurrent($index)" class="img-thumbnail" />
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab" ng-controller="TabController as tab">
+        <ul class="nav nav-pills">
+          <li ng-class="{ active : tab.isSet(1) }">
+            <a href ng-click="tab.setTab(1)">Description</a>
+          </li>
+          <li ng-class="{ active : tab.isSet(2) }">
+            <a href ng-click="tab.setTab(2)">Specs</a>
+          </li>
+          <li ng-class="{ active : tab.isSet(3) }">
+            <a href ng-click="tab.setTab(3)">Reviews</a>
+          </li>
+        </ul>
+
+        <div ng-show="tab.isSet(1)">
+          <h4>Description</h4>
+          <blockquote>{{ product.description }}</blockquote>
+        </div>
+
+        <div ng-show="tab.isSet(2)">
+          <h4>Specs</h4>
+          <blockquote>{{ product.shine }}</blockquote>
+        </div>
+
+        <div ng-show="tab.isSet(3)">
+          <h4>Reviews</h4>
+          <blockquote></blockquote>
+        </div>
+      </div>
     </div>
-
-    <button ng-click="store.purchase(product)">Add to cart!</button>
-
-    <div ng-controller="TabController as tab">
-      <ul>
-        <li ng-class="{ active : tab.isSet(1) }">
-          <a href ng-click="tab.setTab(1)">Description</a>
-        </li>
-        <li ng-class="{ active : tab.isSet(2) }">
-          <a href ng-click="tab.setTab(2)">Specs</a>
-        </li>
-        <li ng-class="{ active : tab.isSet(3) }">
-          <a href ng-click="tab.setTab(3)">Reviews</a>
-        </li>
-      </ul>
-
-      <div ng-show="tab.isSet(1)">
-        <h3>Description</h3>
-        <h4>{{ product.description }}</h4>
-      </div>
-
-      <div ng-show="tab.isSet(2)">
-        <h3>Specs</h3>
-        <h4>{{ product.shine }}</h4>
-      </div>
-
-      <div ng-show="tab.isSet(3)">
-        <h3>Reviews</h3>
-      </div>
-    </div>
-  </div>
+  </main>
 
   <script type="text/javascript" src="node_modules/angular/angular.js"></script>
   <script type="text/javascript" src="node_modules/angular-i18n/angular-locale_es-ar.js"></script>
