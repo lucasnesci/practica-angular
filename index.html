@@ -14,6 +14,34 @@
       </li>
     </ul>
     <button ng-click="store.purchase(product)">Add to cart!</button>
+
+    <div ng-controller="TabController as tab">
+      <ul>
+        <li ng-class="{ active : tab.isSet(1) }">
+          <a href ng-click="tab.setTab(1)">Description</a>
+        </li>
+        <li ng-class="{ active : tab.isSet(2) }">
+          <a href ng-click="tab.setTab(2)">Specs</a>
+        </li>
+        <li ng-class="{ active : tab.isSet(3) }">
+          <a href ng-click="tab.setTab(3)">Reviews</a>
+        </li>
+      </ul>
+
+      <div ng-show="tab.isSet(1)">
+        <h3>Description</h3>
+        <h4>{{ product.description }}</h4>
+      </div>
+
+      <div ng-show="tab.isSet(2)">
+        <h3>Specs</h3>
+        <h4>{{ product.shine }}</h4>
+      </div>
+
+      <div ng-show="tab.isSet(3)">
+        <h3>Reviews</h3>
+      </div>
+    </div>
   </div>
 
   <script type="text/javascript" src="node_modules/angular/angular.js"></script>

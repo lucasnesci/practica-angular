@@ -5,7 +5,7 @@
     .module('gemStore')
     .controller('TabController', TabController);
 
-    function TabController(value) {
+    function TabController() {
       var vm = this;
       vm.tab = 1;
       vm.setTab = setTab;
