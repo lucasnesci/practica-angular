@@ -7,12 +7,16 @@
   <div ng-repeat="product in store.products" ng-hide="product.soldOut">
     <h1>{{ product.name }}</h1>
     <h2>{{ product.price | currency }}</h2>
-    <img ng-src="{{product.images[0]}}" />
-    <ul>
-      <li ng-if="product.images.length" ng-repeat="image in product.images">
-        <img ng-src="{{image}}" class="img-thumbnail"/>
-      </li>
-    </ul>
+
+    <div ng-controller="GalleryController as gallery">
+      <img ng-src="{{product.images[gallery.current]}}" />
+      <ul>
+        <li ng-if="product.images.length" ng-repeat="image in product.images">
+          <img ng-src="{{image}}" ng-click="gallery.setCurrent($index)" class="img-thumbnail"/>
+        </li>
+      </ul>
+    </div>
+
     <button ng-click="store.purchase(product)">Add to cart!</button>
 
     <div ng-controller="TabController as tab">
