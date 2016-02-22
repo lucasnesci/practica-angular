@@ -56,6 +56,13 @@
             </li>
           </ul>
           <form name="reviewForm">
+            <blockquote class="blockquote-reverse">
+              <strong>{{ review.stars }} Stars</strong>
+              {{ review.body }}<br/>
+              <footer>
+                <cite>{{ review.author }}</cite>
+              </footer>
+            </blockquote>
             <h4>Submit a Review</h4>
             <fieldset class="form-group">
               <select ng-model="review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
