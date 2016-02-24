@@ -51,7 +51,7 @@
               <blockquote>
                 <strong>{{review.stars}} Stars</strong>
                 {{review.body}}<br/>
-                <cite>{{ review.author }}</cite>
+                <cite>{{review.author}} on {{review.createdOn | date:'dd/MM/yyyy'}}</cite>
               </blockquote>
             </li>
           </ul>
