@@ -36,47 +36,9 @@
 
         <product-description ng-show="tab.isSet(1)"></product-description>
 
-        <div ng-show="tab.isSet(2)">
-          <h4>Specs</h4>
-          <blockquote>{{ product.shine }}</blockquote>
-        </div>
+        <div ng-show="tab.isSet(2)" product-specs></div>
 
-        <div ng-show="tab.isSet(3)">
-          <h4>Reviews</h4>
-          <ul class="list-unstyled">
-            <li ng-repeat="review in product.reviews">
-              <blockquote>
-                <strong>{{review.stars}} Stars</strong>
-                {{review.body}}<br/>
-                <cite>{{review.author}} on {{review.createdOn | date:'dd/MM/yyyy'}}</cite>
-              </blockquote>
-            </li>
-          </ul>
-          <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product) && reviewForm.$setPristine()" novalidate>
-            <blockquote class="blockquote-reverse">
-              <strong>{{reviewCtrl.review.stars}} Stars</strong>
-              {{reviewCtrl.review.body}}<br/>
-              <footer>
-                <cite>{{reviewCtrl.review.author}}</cite>
-              </footer>
-            </blockquote>
-            <h4>Submit a Review</h4>
-            <fieldset class="form-group" ng-class="{'has-error': reviewForm.rStars.$dirty && reviewForm.rStars.$invalid}">
-              <select name="rStars" ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars" required>
-                <option value="">Rate the Product</option>
-              </select>
-            </fieldset>
-            <fieldset class="form-group" ng-class="{'has-error': reviewForm.rBody.$dirty && reviewForm.rBody.$invalid}">
-              <textarea name="rBody" ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
-            </fieldset>
-            <fieldset class="form-group" ng-class="{'has-error': reviewForm.rAuthor.$dirty && reviewForm.rAuthor.$invalid}">
-              <input name="rAuthor" ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" required />
-            </fieldset>
-            <fieldset class="form-group">
-              <input type="submit" class="btn pull-right" ng-class="reviewForm.$dirty && reviewForm.$invalid ? 'btn-danger' : 'btn-primary'" value="Submit Review" />
-            </fieldset>
-          </form>
-        </div>
+        <product-reviews ng-show="tab.isSet(3)"></product-reviews>
       </div>
     </div>
   </main>
@@ -89,5 +51,7 @@
   <script type="text/javascript" src="GalleryController.js"></script>
   <script type="text/javascript" src="ReviewController.js"></script>
   <script type="text/javascript" src="productDescriptionDirective.js"></script>
+  <script type="text/javascript" src="productSpecsDirective.js"></script>
+  <script type="text/javascript" src="productReviewsDirective.js"></script>
 </body>
 </html>
