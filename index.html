@@ -12,14 +12,7 @@
       </h3>
       <button class="btn btn-success" ng-show="product.canPurchase" ng-click="store.purchase(product)">Add to cart!</button>
 
-      <div class="gallery" ng-controller="GalleryController as gallery">
-        <img ng-src="{{product.images[gallery.current]}}" class="center-block img-rounded" />
-        <ul class="clearfix list-unstyled">
-          <li ng-if="product.images.length" ng-repeat="image in product.images" class="pull-left">
-            <img ng-src="{{image}}" ng-click="gallery.setCurrent($index)" class="img-thumbnail" />
-          </li>
-        </ul>
-      </div>
+      <product-gallery></product-gallery>
 
       <product-tabs></product-tabs>
 
@@ -30,11 +23,11 @@
   <script type="text/javascript" src="node_modules/angular-i18n/angular-locale_es-ar.js"></script>
   <script type="text/javascript" src="gemStore.js"></script>
   <script type="text/javascript" src="StoreController.js"></script>
-  <script type="text/javascript" src="GalleryController.js"></script>
   <script type="text/javascript" src="ReviewController.js"></script>
   <script type="text/javascript" src="productDescriptionDirective.js"></script>
   <script type="text/javascript" src="productSpecsDirective.js"></script>
   <script type="text/javascript" src="productReviewsDirective.js"></script>
   <script type="text/javascript" src="productTabsDirective.js"></script>
+  <script type="text/javascript" src="productGalleryDirective.js"></script>
 </body>
 </html>
