@@ -21,25 +21,8 @@
         </ul>
       </div>
 
-      <div class="tab" ng-controller="TabController as tab">
-        <ul class="nav nav-pills">
-          <li ng-class="{ active : tab.isSet(1) }">
-            <a href ng-click="tab.setTab(1)">Description</a>
-          </li>
-          <li ng-class="{ active : tab.isSet(2) }">
-            <a href ng-click="tab.setTab(2)">Specs</a>
-          </li>
-          <li ng-class="{ active : tab.isSet(3) }">
-            <a href ng-click="tab.setTab(3)">Reviews</a>
-          </li>
-        </ul>
+      <product-tabs></product-tabs>
 
-        <product-description ng-show="tab.isSet(1)"></product-description>
-
-        <div ng-show="tab.isSet(2)" product-specs></div>
-
-        <product-reviews ng-show="tab.isSet(3)"></product-reviews>
-      </div>
     </div>
   </main>
 
@@ -47,11 +30,11 @@
   <script type="text/javascript" src="node_modules/angular-i18n/angular-locale_es-ar.js"></script>
   <script type="text/javascript" src="gemStore.js"></script>
   <script type="text/javascript" src="StoreController.js"></script>
-  <script type="text/javascript" src="TabController.js"></script>
   <script type="text/javascript" src="GalleryController.js"></script>
   <script type="text/javascript" src="ReviewController.js"></script>
   <script type="text/javascript" src="productDescriptionDirective.js"></script>
   <script type="text/javascript" src="productSpecsDirective.js"></script>
   <script type="text/javascript" src="productReviewsDirective.js"></script>
+  <script type="text/javascript" src="productTabsDirective.js"></script>
 </body>
 </html>

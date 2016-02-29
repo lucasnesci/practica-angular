@@ -3,9 +3,19 @@
 
   angular
     .module('gemStore')
-    .controller('TabController', TabController);
+    .directive('productTabs', productTabs);
 
-    function TabController() {
+  function productTabs() {
+    var directive = {
+      restrict: 'E',
+      templateUrl: 'product-tabs.html',
+      controller: TabsController,
+      controllerAs: 'tab'
+    }
+
+    return directive;
+
+    function TabsController() {
       var vm = this;
       vm.tab = 1;
       vm.setTab = setTab;
@@ -18,5 +28,6 @@
       function isSet(tab) {
         return vm.tab === tab;
       }
-    };
+    }
+  }
 })();
